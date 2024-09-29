@@ -1,0 +1,32 @@
+<div id="friends">
+  <table class = 'table table-striped table-hover table-bordered'>
+    <thead class="table-dark">
+        <tr>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Email</th>
+          <th>Phone Number</th>
+          <th>Twitter</th>
+          <th>User ID</th>
+          <th colspan="3"></th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @friends.each do |friend| %>
+          <tr>
+            <td><%= friend.first_name %></td>
+            <td><%= friend.last_name %></td>
+            <td><%= friend.email %></td>
+            <td><%= friend.phone %></td>
+            <td><%= friend.twitter %></td>
+            <td><%= friend.user_id %></td>
+            <td><%= link_to 'Show', friend, class: "btn" %></td>
+            <td><%= link_to 'Edit', edit_friend_path(friend), class: "btn" %></td>
+            <td><%= button_to 'Destroy', friend, method: :delete, class: "btn" %></td>
+          </tr>
+        <% end %>
+    </tbody>
+  </table>
+</div>
+
+<%= link_to "New friend", new_friend_path, class: "btn btn-secondary" %>
